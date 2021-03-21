@@ -21,3 +21,13 @@ F:\FILES\C#\TeacherAttendance\obj\Debug\TeacherAttendance.frmTeacherAttendance.r
 F:\FILES\C#\TeacherAttendance\obj\Debug\TeacherAttendance.Properties.Resources.resources
 F:\FILES\C#\TeacherAttendance\obj\Debug\TeacherAttendance.csproj.GenerateResource.cache
 F:\FILES\C#\TeacherAttendance\obj\Debug\TeacherAttendance.csproj.CoreCompileInputs.cache
+F:\FILES\C#\TeacherAttendance 2\bin\Debug\TeacherAttendance.exe.config
+F:\FILES\C#\TeacherAttendance 2\bin\Debug\TeacherAttendance.exe
+F:\FILES\C#\TeacherAttendance 2\bin\Debug\TeacherAttendance.pdb
+F:\FILES\C#\TeacherAttendance 2\obj\Debug\TeacherAttendance.csprojAssemblyReference.cache
+F:\FILES\C#\TeacherAttendance 2\obj\Debug\TeacherAttendance.frmTeacherAttendance.resources
+F:\FILES\C#\TeacherAttendance 2\obj\Debug\TeacherAttendance.Properties.Resources.resources
+F:\FILES\C#\TeacherAttendance 2\obj\Debug\TeacherAttendance.csproj.GenerateResource.cache
+F:\FILES\C#\TeacherAttendance 2\obj\Debug\TeacherAttendance.csproj.CoreCompileInputs.cache
+F:\FILES\C#\TeacherAttendance 2\obj\Debug\TeacherAttendance.exe
+F:\FILES\C#\TeacherAttendance 2\obj\Debug\TeacherAttendance.pdb

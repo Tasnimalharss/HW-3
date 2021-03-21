@@ -15,7 +15,8 @@ namespace TeacherAttendance
     public partial class frmTeacherAttendance : Form
     {
         private AttendanceManagement attendance;
-        private List<Attendance> Attendancelist = new List<Attendance>();
+        private BindingSource bindingSource = new BindingSource();
+
 
         public frmTeacherAttendance()
         {
@@ -28,6 +29,7 @@ namespace TeacherAttendance
             ShowCourses();
             ShowTeachers();
             ShowRooms();
+            edit.Enabled = false;
         }
 
         /*private void CmbCourses_SelectedValueChanged(object sender, EventArgs e)
@@ -161,12 +163,19 @@ namespace TeacherAttendance
                          txtAddress.Text,
                          deptComboBox.Text); */
 
-            Attendancelist.Add(new Attendance(cmbTeacherName.Text, cmbCourses.Text, cmbRoom.Text, dateTimePicker1.Text,
-                                        dateTimePicker2.Text, dateTimePicker3.Text,textBox2.Text));
+            dataGridView1.DataSource = null;
+            attendance.addAttendance(
+                                    (Teacher)cmbTeacherName.SelectedItem,
+                                    (Course)cmbCourses.SelectedItem,
+                                    (Room)cmbRoom.SelectedItem,
+                                    attendanceDate.Value.ToString(),
+                                    startTime.Value.ToString(),
+                                    leaveTime.Value.ToString(),
+                                    textBox2.Text);
 
-
-            dataGridView1.DataSource = Attendancelist.ToList();
-            clearFields();
+            bindingSource.DataSource = attendance.getAllAttendance();
+            dataGridView1.DataSource = bindingSource;
+          
 
         }
 
@@ -180,6 +189,44 @@ namespace TeacherAttendance
                     ctrl.Text = "";
                 }
             }
+        }
+
+      
+    
+        private void dataGridView1_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            int index = dataGridView1.CurrentRow.Index;
+
+            Attendance current = attendance.getAttendanceByIndex(index);
+            cmbTeacherName.SelectedItem = current.Teacher;
+            cmbRoom.SelectedItem = current.Room;
+            cmbCourses.SelectedItem = current.Course;
+            attendanceDate.Value = Convert.ToDateTime(current.AttendanceDate);
+            startTime.Value = Convert.ToDateTime(current.StartTime);
+            leaveTime.Value = Convert.ToDateTime(current.LeaveTime);
+            textBox2.Text = current.Comment;
+
+            edit.Enabled = true;
+
+
+        }
+
+        private void edit_Click(object sender, EventArgs e)
+        {
+            int index = dataGridView1.CurrentRow.Index;
+            dataGridView1.DataSource = null;
+
+            Attendance current = attendance.getAttendanceByIndex(index);
+            current.Teacher =(Teacher) cmbTeacherName.SelectedItem;
+            current.Room = (Room) cmbRoom.SelectedItem;
+            current.Course = (Course)  cmbCourses.SelectedItem;
+            current.AttendanceDate = attendanceDate.Value.ToString();
+            current.StartTime = startTime.Value.ToString();
+            current.LeaveTime = leaveTime.Value.ToString();
+            current.Comment = textBox2.Text ;
+            bindingSource.DataSource = attendance.getAllAttendance();
+            dataGridView1.DataSource = bindingSource;
+
         }
     }
 }

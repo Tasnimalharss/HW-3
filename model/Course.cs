@@ -42,5 +42,10 @@ namespace TeacherAttendance.model
             }
 
         }
+
+        public override string ToString()
+        {
+            return this.coursename;
+        }
     }
 }

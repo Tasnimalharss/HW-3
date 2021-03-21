@@ -18,6 +18,8 @@ namespace TeacherAttendance.model
             courses = new List<Course>();
             teachers = new List<Teacher>();
             rooms = new List<Room>();
+            attendance = new List<Attendance>();
+
         }
 
         public void addNewCourse(String CoursName)
@@ -48,7 +50,7 @@ namespace TeacherAttendance.model
 
             temp = teachers.GetRange(0, teachers.Count);
 
-            temp.Add(new Teacher(0, "Add new course..."));
+            temp.Add(new Teacher(0, "Add new Teacher..."));
 
             return temp;
 
@@ -75,6 +77,32 @@ namespace TeacherAttendance.model
 
             return temp;
 
+        }
+
+        public void addAttendance(
+                Teacher teacher, Course course, Room room, 
+                String attandancedate, string starttime,
+                string leavetime, string comment
+       )
+        {
+
+
+            attendance.Add(new Attendance(teacher, course, room,attandancedate,
+            starttime, leavetime, comment));
+
+
+        }
+
+        public List<Attendance> getAllAttendance()
+        {
+
+            return attendance;
+        }
+
+        public Attendance getAttendanceByIndex(int index)
+        {
+
+            return attendance[index];
         }
 
 

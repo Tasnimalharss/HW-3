@@ -35,15 +35,16 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.attendanceDate = new System.Windows.Forms.DateTimePicker();
             this.cmbCourses = new System.Windows.Forms.ComboBox();
             this.cmbRoom = new System.Windows.Forms.ComboBox();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.startTime = new System.Windows.Forms.DateTimePicker();
+            this.leaveTime = new System.Windows.Forms.DateTimePicker();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.cmbTeacherName = new System.Windows.Forms.ComboBox();
+            this.edit = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -117,14 +118,14 @@
             this.label7.TabIndex = 6;
             this.label7.Text = "Comment";
             // 
-            // dateTimePicker1
+            // attendanceDate
             // 
-            this.dateTimePicker1.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(113, 34);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(205, 30);
-            this.dateTimePicker1.TabIndex = 7;
+            this.attendanceDate.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.attendanceDate.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.attendanceDate.Location = new System.Drawing.Point(113, 34);
+            this.attendanceDate.Name = "attendanceDate";
+            this.attendanceDate.Size = new System.Drawing.Size(205, 30);
+            this.attendanceDate.TabIndex = 7;
             // 
             // cmbCourses
             // 
@@ -159,23 +160,23 @@
             this.cmbRoom.TabIndex = 10;
             this.cmbRoom.SelectionChangeCommitted += new System.EventHandler(this.CmbRoom_SelectionChangeCommitted);
             // 
-            // dateTimePicker2
+            // startTime
             // 
-            this.dateTimePicker2.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(463, 69);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(200, 30);
-            this.dateTimePicker2.TabIndex = 11;
+            this.startTime.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.startTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.startTime.Location = new System.Drawing.Point(463, 69);
+            this.startTime.Name = "startTime";
+            this.startTime.Size = new System.Drawing.Size(200, 30);
+            this.startTime.TabIndex = 11;
             // 
-            // dateTimePicker3
+            // leaveTime
             // 
-            this.dateTimePicker3.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.dateTimePicker3.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker3.Location = new System.Drawing.Point(814, 69);
-            this.dateTimePicker3.Name = "dateTimePicker3";
-            this.dateTimePicker3.Size = new System.Drawing.Size(270, 30);
-            this.dateTimePicker3.TabIndex = 12;
+            this.leaveTime.Font = new System.Drawing.Font("Tahoma", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.leaveTime.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.leaveTime.Location = new System.Drawing.Point(814, 69);
+            this.leaveTime.Name = "leaveTime";
+            this.leaveTime.Size = new System.Drawing.Size(270, 30);
+            this.leaveTime.TabIndex = 12;
             // 
             // textBox2
             // 
@@ -189,7 +190,7 @@
             // 
             this.button1.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.button1.Font = new System.Drawing.Font("Monotype Koufi", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(178)));
-            this.button1.Location = new System.Drawing.Point(951, 171);
+            this.button1.Location = new System.Drawing.Point(425, 169);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(133, 33);
             this.button1.TabIndex = 14;
@@ -204,6 +205,7 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(1068, 168);
             this.dataGridView1.TabIndex = 16;
+            this.dataGridView1.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dataGridView1_MouseDoubleClick);
             // 
             // cmbTeacherName
             // 
@@ -216,20 +218,32 @@
             this.cmbTeacherName.TabIndex = 17;
             this.cmbTeacherName.SelectionChangeCommitted += new System.EventHandler(this.CmbTeacherName_SelectionChangeCommitted);
             // 
+            // edit
+            // 
+            this.edit.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.edit.Location = new System.Drawing.Point(583, 170);
+            this.edit.Name = "edit";
+            this.edit.Size = new System.Drawing.Size(132, 32);
+            this.edit.TabIndex = 18;
+            this.edit.Text = "Edit";
+            this.edit.UseVisualStyleBackColor = true;
+            this.edit.Click += new System.EventHandler(this.edit_Click);
+            // 
             // frmTeacherAttendance
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1108, 450);
+            this.ClientSize = new System.Drawing.Size(913, 450);
+            this.Controls.Add(this.edit);
             this.Controls.Add(this.cmbTeacherName);
             this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.dateTimePicker3);
-            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.leaveTime);
+            this.Controls.Add(this.startTime);
             this.Controls.Add(this.cmbRoom);
             this.Controls.Add(this.cmbCourses);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.attendanceDate);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -255,15 +269,16 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker attendanceDate;
         private System.Windows.Forms.ComboBox cmbCourses;
         private System.Windows.Forms.ComboBox cmbRoom;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DateTimePicker startTime;
+        private System.Windows.Forms.DateTimePicker leaveTime;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.ComboBox cmbTeacherName;
+        private System.Windows.Forms.Button edit;
     }
 }
 

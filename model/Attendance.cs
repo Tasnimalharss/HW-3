@@ -9,19 +9,19 @@ namespace TeacherAttendance.model
     class Attendance
     {
 
-        public String TeacherId { get; set; }
-        public String CourseId { get; set; }
-        public String RoomId { get; set; }
+        public Teacher Teacher { get; set; }
+        public Course Course { get; set; }
+        public Room Room { get; set; }
         public String AttendanceDate { get; set; }
         public String StartTime { get; set; }
         public String LeaveTime { get; set; }
         public String Comment { get; set; }
 
-        public Attendance(string TeacherId, string CourseId, string RoomId, string AttendanceDate, string StartTime, string LeaveTime,string Comment)
+        public Attendance(Teacher Teacher, Course Course, Room Room, string AttendanceDate, string StartTime, string LeaveTime,string Comment)
         {
-            this.TeacherId = TeacherId;
-            this.CourseId = CourseId;
-            this.RoomId = RoomId;
+            this.Teacher = Teacher;
+            this.Course = Course;
+            this.Room = Room;
             this.AttendanceDate = AttendanceDate;
             this.StartTime = StartTime;
             this.LeaveTime = LeaveTime;
